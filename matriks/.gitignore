@@ -1,0 +1,13 @@
+# Mengabaikan file yang dibuat Python
+__pycache__/
+
+# Mengabaikan file log
+*.log
+
+# Mengabaikan file sementara atau build
+*.tmp
+/dist/
+/build/
+
+# Mengabaikan file yang dihasilkan oleh editor, seperti VS Code
+.vscode/
