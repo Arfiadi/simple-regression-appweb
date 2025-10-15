@@ -1,0 +1,18 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+  # The Backend Service (Flask App)
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+
+  # The Frontend Service (Nginx Web Server)
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend # (Optional) Tells frontend to wait for backend to start
