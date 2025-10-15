@@ -1,4 +1,4 @@
-# backend/Matriks/operations/transpose.py
+# backend/matriks/operations/transpose.py
 from ..matrix import Matrix
 
 def transpose(matrix):

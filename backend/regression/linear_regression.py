@@ -1,10 +1,10 @@
 # backend/regression/linear_regression.py
 import numpy as np
 # Perhatikan perubahan path impor di bawah ini
-from Matriks.matrix import Matrix
-from Matriks.operations.transpose import transpose
-from Matriks.operations.inverse import inverse
-from Matriks.operations.multiplier import multiply_matrices
+from matriks.matrix import Matrix
+from matriks.operations.transpose import transpose
+from matriks.operations.inverse import inverse
+from matriks.operations.multiplier import multiply_matrices
 
 def perform_linear_regression(dataframe):
     """
