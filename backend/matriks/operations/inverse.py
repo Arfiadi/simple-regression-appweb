@@ -1,4 +1,4 @@
-# backend/Matriks/operations/inverse.py
+# backend/matriks/operations/inverse.py
 from ..matrix import Matrix
 
 def _get_minor(m_data, i, j):

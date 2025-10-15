@@ -6,12 +6,8 @@ __pycache__/
 .venv/
 env/
 
-# ========== Upload & Output ==========
-uploads/
-*.log
-*.tmp
-*.csv
-*.json
+# Ignore user uploaded files
+backend/uploads/
 
 # ========== Build / Dist ==========
 dist/
