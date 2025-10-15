@@ -1,12 +1,12 @@
-let regressionChart; // Variabel global di dalam modul untuk menyimpan objek grafik
+let regressionChart; // A variable within the module to hold the chart instance
 
 /**
- * Menampilkan hasil analisis pada sebuah elemen canvas.
- * @param {HTMLCanvasElement} canvasElement - Elemen canvas untuk menggambar.
- * @param {Object} data - Data hasil analisis dari backend.
+ * Displays the analysis result on a canvas element.
+ * @param {CanvasRenderingContext2D} ctx - The 2D context of the canvas element.
+ * @param {Object} data - The analysis result data from the backend.
  */
-export function displayChart(canvasElement, data) {
-    // Hancurkan grafik lama jika ada untuk mencegah tumpang tindih
+export function displayChart(ctx, data) {
+    // Destroy the old chart if it exists to prevent flickering
     if (regressionChart) {
         regressionChart.destroy();
     }
@@ -14,7 +14,7 @@ export function displayChart(canvasElement, data) {
     const scatterData = data.original_data.map(p => ({ x: p[0], y: p[1] }));
     const lineData = data.regression_line;
 
-    regressionChart = new Chart(canvasElement, {
+    regressionChart = new Chart(ctx, {
         type: 'scatter',
         data: {
             datasets: [{

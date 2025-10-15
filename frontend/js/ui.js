@@ -1,8 +1,8 @@
-// Impor fungsi yang dibutuhkan dari modul lain
+// frontend/js/ui.js
+
 import { analyzeData } from './api.js';
 import { displayChart } from './chart.js';
 
-// Referensi ke semua elemen HTML yang akan dimanipulasi
 const elements = {
     fileInput: document.getElementById('csvFileInput'),
     analyzeButton: document.getElementById('analyzeButton'),
@@ -12,13 +12,17 @@ const elements = {
     loadingDiv: document.getElementById('loading'),
     errorDiv: document.getElementById('error'),
     errorMessageP: document.getElementById('errorMessage'),
-    chartCanvas: document.getElementById('regressionChart').getContext('2d'),
+    chartCanvas: document.getElementById('regressionChart'),
 };
 
 /**
  * Menangani logika utama saat tombol "Analyze" diklik.
+ * @param {Event} event - Objek event dari klik tombol.
  */
-async function handleAnalysis() {
+async function handleAnalysis(event) {
+    // PERBAIKAN UTAMA: Mencegah halaman me-refresh secara paksa.
+    event.preventDefault(); 
+
     const file = elements.fileInput.files[0];
     if (!file) {
         showError('Please choose a CSV file first!');
@@ -46,7 +50,8 @@ function showLoading(isLoading) {
 function displayResults(data) {
     elements.resultsDiv.classList.remove('hidden');
     elements.equationP.innerHTML = `<strong>Regression Equation:</strong> ${data.equation}`;
-    displayChart(elements.chartCanvas, data);
+    const ctx = elements.chartCanvas.getContext('2d');
+    displayChart(ctx, data);
 }
 
 function showError(message) {
@@ -63,5 +68,6 @@ export function setupEventListeners() {
         elements.fileNameSpan.textContent = elements.fileInput.files.length > 0 ? elements.fileInput.files[0].name : 'No file chosen';
     });
 
+    // Pastikan fungsi handleAnalysis menerima 'event'
     elements.analyzeButton.addEventListener('click', handleAnalysis);
 }

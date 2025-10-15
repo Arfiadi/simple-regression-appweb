@@ -1,6 +1,7 @@
 import { setupEventListeners } from './ui.js';
 
-// Saat halaman selesai dimuat, panggil fungsi untuk mengatur semua interaksi
+// Wait until the entire HTML document is fully loaded and parsed
 document.addEventListener('DOMContentLoaded', () => {
+    // Only then, run the setup function to attach event listeners
     setupEventListeners();
 });
