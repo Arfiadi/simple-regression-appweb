@@ -16,23 +16,17 @@
             <h1>Linear Regression Analysis 📈</h1>
             <p>Upload a two-column CSV file to visualize the data trend.</p>
         </header>
-
         <main>
             <div class="upload-section">
                 <input type="file" id="csvFileInput" accept=".csv" class="file-input">
                 <label for="csvFileInput" class="file-label">Choose File</label>
                 <span id="fileName" class="file-name">No file chosen</span>
-                <button id="analyzeButton" type="button">Analyze</button>
-            </div>
-            
+                <button id="analyzeButton" type="button">Analyze</button> </div>
             <div id="results" class="results-card hidden">
                 <h2>Analysis Result</h2>
                 <p id="equation" class="equation-text"></p>
-                <div class="chart-container">
-                    <canvas id="regressionChart"></canvas>
-                </div>
+                <div class="chart-container"><canvas id="regressionChart"></canvas></div>
             </div>
-
             <div id="loading" class="status-card hidden">
                 <div class="spinner"></div>
                 <p>Analyzing data, please wait...</p>

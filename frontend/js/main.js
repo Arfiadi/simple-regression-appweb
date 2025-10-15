@@ -1,7 +1,6 @@
 import { setupEventListeners } from './ui.js';
 
-// Wait until the entire HTML document is fully loaded and parsed
+// VERIFIED: Menunggu HTML siap sebelum menjalankan JS
 document.addEventListener('DOMContentLoaded', () => {
-    // Only then, run the setup function to attach event listeners
     setupEventListeners();
 });
