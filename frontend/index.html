@@ -1,0 +1,49 @@
+<!-- frontend/html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Regression Analysis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Linear Regression Analysis 📈</h1>
+            <p>Upload a two-column CSV file to visualize the data trend.</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <input type="file" id="csvFileInput" accept=".csv" class="file-input">
+                <label for="csvFileInput" class="file-label">Choose File</label>
+                <span id="fileName" class="file-name">No file chosen</span>
+                <button id="analyzeButton">Analyze</button>
+            </div>
+            
+            <div id="results" class="results-card hidden">
+                <h2>Analysis Result</h2>
+                <p id="equation" class="equation-text"></p>
+                <div class="chart-container">
+                    <canvas id="regressionChart"></canvas>
+                </div>
+            </div>
+
+            <div id="loading" class="status-card hidden">
+                <div class="spinner"></div>
+                <p>Analyzing data, please wait...</p>
+            </div>
+            <div id="error" class="status-card hidden">
+                <p id="errorMessage" class="error-text"></p>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
